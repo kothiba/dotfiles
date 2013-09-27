@@ -51,32 +51,33 @@ imap <silent> <C-n> <ESC>:update<CR>:bn<CR>
 vmap <silent> <C-n> <ESC>:update<CR>:bn<CR>
 cmap <silent> <C-n> <ESC>:update<CR>:bn<CR>
 
-
-
-
 "---------------------------------------
-"NeoBundle
+"NeoBundle (ここもSD見て修正している:20130928)
 "---------------------------------------
-set nocompatible
-filetype off
 
+"vim起動時にのみruntimepathにneobundle.vimを追加
 if has('vim_starting')
-  set runtimepath+=~/vim/bundle/neobundle.vim
-  call neobundle#rc(expand('=/vim/bundle'))
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('=/.vim/bundle'))
 endif
+"neobundle.vimの初期化
+call neobundle#rc(expand('~/.vim/bundle'))
+"neobundle.vimを更新するための設定
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'https://github.com/Shougo/neocomplcache.git'
-NeoBundle 'https://github.com/Shougo/unite.vim.git'
-NeoBundle 'https://github.com/Shougo/vimfiler.git'
-NeoBundle 'https://github.com/Shougo/vimshell.git'
-NeoBundle 'https://github.com/Shougo/vimproc.git'
-NeoBundle 'https://github.com/vim-scripts/Align.git'
-NeoBundle 'https://github.com/glidenote/memolist.vim.git'
-NeoBundle 'https://github.com/kien/ctrlp.vim.git'
+"以下で読み込むPluginを記載することでよしなにしてくれる
+
+NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/vimfiler.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'vim-scripts/Align.git'
+NeoBundle 'glidenote/memolist.vim.git'
+NeoBundle 'kien/ctrlp.vim.git'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'vim-scripts/newspaper.vim'
 
-
-
+"ファイルタイプ別プラグイン/インデントを有効にする
 filetype plugin on
 filetype indent on
