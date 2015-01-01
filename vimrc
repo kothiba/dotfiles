@@ -58,7 +58,6 @@ cmap <silent> <C-n> <ESC>:update<CR>:bn<CR>
 "vim起動時にのみruntimepathにneobundle.vimを追加
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('=/.vim/bundle'))
 endif
 "neobundle.vimの初期化
 call neobundle#rc(expand('~/.vim/bundle'))
