@@ -60,9 +60,10 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 "neobundle.vimの初期化
-call neobundle#rc(expand('~/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 "neobundle.vimを更新するための設定
 NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
 
 "以下で読み込むPluginを記載することでよしなにしてくれる
 
